@@ -10,7 +10,7 @@ const multerStorage = (directory,validation,key='image') => {
       const { originalname } = file ;
       req.body[key] =  originalname ;
       //const { error } = validateRegister(req.body);
-      const { error } = validation(req.body);
+      const { error } = req.params.id ? validation(req.body,true) : validation(req.body);
       //const directory = `public/images`
       if (error) {
         cb(error.details[0].message,directory);

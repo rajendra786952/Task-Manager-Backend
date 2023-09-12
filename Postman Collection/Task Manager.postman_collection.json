@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "c1372a4e-465e-446e-adb7-df7c22d69aac",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14103396",
+		"_collection_link": "https://orange-satellite-499238.postman.co/workspace/New-Team-Workspace~e867bb9b-9eb5-41a7-ac1f-7ee217c7c196/collection/14103396-c1372a4e-465e-446e-adb7-df7c22d69aac?action=share&source=collection_link&creator=14103396"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rahul",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "rahul786@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "Raj887169@yu",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/rajendrachourasiya786/Downloads/unnamed.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"rahul786@gmail.com\",\n    \"password\":\"Raj887169@yu\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZlMWYwOGU4YTU5MzNkM2E5NzViNTIiLCJuYW1lIjoiU3VuaWwiLCJlbWFpbCI6InN1bmlsNzg2QGdtYWlsLmNvbSIsImltYWdlIjoidE9XTkhBTEwgUTIyMDIzLnBuZyIsInBhc3N3b3JkIjoiJDJiJDEwJEZISlQ2M09JZXlQc0pWR1NDTS5ZVS5MaUY0SkI4WEl2WGE5Zmo2U1RlSlJ1VFhSdFJPeHZLIiwiX192IjowLCJpYXQiOjE2OTQ0NDU3MzJ9.4EQS-HITAGacpZ0qlFA2ihj9NNb977RwRT05rFhLXlA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "create a dropdown flow",
+									"type": "default"
+								},
+								{
+									"key": "dueDate",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": "/Users/rajendrachourasiya786/Downloads/2023.05.19_log1.sql"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/task",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZjZmY4NWUxNTEzNTQ4YTI3MDUyM2MiLCJuYW1lIjoicmFqZW5kcmEiLCJlbWFpbCI6InJhamVuZHJhNzg2QGdtYWlsLmNvbSIsImltYWdlIjoiSU1HXzczNTcuanBnIiwicGFzc3dvcmQiOiIkMmIkMTAkUEpaeDhveWRObWVWZmMwU0pIUjVwT25MNDRzWFc5UjZUQXhVaEZUVjk2RGc2UGdiYS8waHkiLCJfX3YiOjAsImlhdCI6MTY5NDM2OTUzNn0.qVAx-vrphhVf0hEjgmvgyfP5UUGX3V5lzKyIDuv-S1c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/task",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZjZmY4NWUxNTEzNTQ4YTI3MDUyM2MiLCJuYW1lIjoicmFqZW5kcmEiLCJlbWFpbCI6InJhamVuZHJhNzg2QGdtYWlsLmNvbSIsImltYWdlIjoiSU1HXzczNTcuanBnIiwicGFzc3dvcmQiOiIkMmIkMTAkUEpaeDhveWRObWVWZmMwU0pIUjVwT25MNDRzWFc5UjZUQXhVaEZUVjk2RGc2UGdiYS8waHkiLCJfX3YiOjAsImlhdCI6MTY5NDM2OTUzNn0.qVAx-vrphhVf0hEjgmvgyfP5UUGX3V5lzKyIDuv-S1c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Create a heaading",
+									"type": "default"
+								},
+								{
+									"key": "dueDate",
+									"value": "1990-08-22",
+									"type": "default"
+								},
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": "/Users/rajendrachourasiya786/Downloads/Rifle.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/task/64fe2b09ad0a0f99cd4eca57",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"64fe2b09ad0a0f99cd4eca57"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZjZmY4NWUxNTEzNTQ4YTI3MDUyM2MiLCJuYW1lIjoicmFqZW5kcmEiLCJlbWFpbCI6InJhamVuZHJhNzg2QGdtYWlsLmNvbSIsImltYWdlIjoiSU1HXzczNTcuanBnIiwicGFzc3dvcmQiOiIkMmIkMTAkUEpaeDhveWRObWVWZmMwU0pIUjVwT25MNDRzWFc5UjZUQXhVaEZUVjk2RGc2UGdiYS8waHkiLCJfX3YiOjAsImlhdCI6MTY5NDM0OTMxNH0.io1l-5wOco3OKoH7VSvQDQyd0ER2Hq4DC9FsGx9ySXs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/task/64fe2b09ad0a0f99cd4eca57",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"64fe2b09ad0a0f99cd4eca57"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get xls sheet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/excelSheet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"excelSheet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pdf of sepecific user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/pdf/64ff7fea4bc486f9e6ab604c",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"pdf",
+								"64ff7fea4bc486f9e6ab604c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

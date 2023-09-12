@@ -33,7 +33,7 @@ const editTask = async (req,res) => {
         const _id  = req.params.id;
         if(!validateParams(_id))
          throw 'Invalid Task Id.';
-        const { error } = validateTask(req.body);
+        const { error } = validateTask(req.body,true);
         if(error)
          throw error.details[0].message;
         const task = await taskModel.findOne({ _id });
